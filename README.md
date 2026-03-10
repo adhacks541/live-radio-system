@@ -60,5 +60,36 @@ npm start
 ### 4. Start Streaming
 Enable the Supervisor config provided in `config/radio-worker.conf` to start the background worker.
 
+## Documentation
+For deeper technical insights, please refer to the documents in the `/docs` directory:
+- [Architecture Details](docs/ARCHITECTURE.md) - System design and component interactions.
+- [Failure Handling](docs/FAILURE_HANDLING.md) - How the system handles stream drops and auto-recovers.
+- [External APIs](docs/EXTERNAL_APIS.md) - Details on external integrations.
+
+## Environment Variables
+The backend relies on several environment variables. After copying `.env.example` to `.env`, ensure you configure at least the following:
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=live_radio
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+## Database Seeding
+To populate the database with initial data (like an admin user or sample tracks), run:
+```bash
+cd backend
+php artisan db:seed
+```
+
+## Contributing
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
 ## License
 MIT
